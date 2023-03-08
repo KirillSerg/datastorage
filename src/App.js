@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import styled from "styled-components";
+import map from "./img/map.png";
+import PeopleGroup from "./PeopleGroup";
 
-function App() {
+const MainWrap = styled.div`
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const BgIcon = styled.img`
+  width: 100%}
+  height: 100%;
+`;
+
+const App = () => {
+  const [selectedGroup, setSelectedGroup] = useState({northAmerica: "", europ: ""})
+console.log(selectedGroup)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainWrap>
+      <BgIcon src={map} />
+      <PeopleGroup
+        goupRegion="northAmerica"
+        setSelectedGroup={setSelectedGroup}
+        selectedGroup={selectedGroup}
+        left="12%"
+        top="33%"
+      />
+      <PeopleGroup
+        goupRegion="europ"
+        setSelectedGroup={setSelectedGroup}
+        selectedGroup={selectedGroup}
+        left="45%"
+        top="30%"
+      />
+    </MainWrap>
   );
 }
 

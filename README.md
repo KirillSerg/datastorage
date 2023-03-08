@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+ByteCloud Technologies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Загальна інформація:
 
-## Available Scripts
+Ми розвиваємо географічно-розподілене сховище. Як і інші провайдери ми зберігаємо кілька копій кожного файлу, але робимо це не в одному фізичному дата-центрі, а в різних. Таким чином копії файлів знаходяться ближче до кінцевих користувачів, тому вони можуть скачати їх швидше.
 
-In the project directory, you can run:
+Для розуміння того, як працює географічно-розподілене сховище, ми зробили невеликий інтерактивний блок. Наші потенційні клієнти можуть візуально порівняти швидкість скачування файлів з централізованого сховища та з наших серверів. Перегляньте відео main1.mp4 з папки https://drive.google.com/drive/u/0/folders/1pC1XFsBQ4-Iut1eM6zZzeyrO03ZOSEjG, щоб зрозуміти, як це працює.
 
-### `npm start`
+Ідея блоку:
+Клієнт обирає кількість кінцевих користувачів у регіонах. Іконки на 1, 2 чи 3 людини. Більше людей -- більше користувачів у регіоні. Якщо обрати всі регіони, то перехід далі відбувається автоматично. Якщо обрати не всі регіони, то треба клікнути Next. Перегляньте відео main2.mp4
+На мапі з'являється ноутбук (для 1 людини), ноутбук + смартфон (для 2), ноутбук + смартфон + телефон (для 3). Перегляньте відео main3.mp4.
+Клієнт обирає регіон, де зараз зберігаються його файли (синій сервер).
+Клієнт обирає ще мінімум 2 регіони, де будуть зберігатися файли, якщо він підключиться до нашого сховища (червоні сервери). Можна обрати 2 або 3 додаткових регіони. При 2х треба клікнути на Start, при 3х анімація запускається автоматично.
+Дані швидко передаються кінцевим користувачам з найближчих червоних серверів, тому що вони близько. На мапі з'являються значення Latency і Time.
+Дані повільно передаються користувачам з одного синього сервера, тому що він далеко.
+Показуємо фінальну таблицю з результатами. Розмір таблиці залежить від кількості регіонів. Перегляньте кінець відео main2.mp4 з короткою таблицею. Регіони в фінальній таблиці сортуються по кількості користувачів в кожному з них.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2) Основне завдання:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+В папці Elements_Old є всі елементи для цього блоку, окрім index.html, style.css та main.js. Вам треба відновити HTML, CSS та JS файли, щоб цей блок запрацював.
 
-### `npm test`
+На відміну від попереднього тестового завдання, зараз важлива не тільки правильність (JS), але і зовнішність (HTML, CSS). Деякі речі можна покращити: лінії не повинні перекривати сервери та девайси; фон під написами Latency і Time покращить читабельність.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Час передачі даних має бути відносним. Чим більша відстань між точками, тим більше час. Кількість зірок та максимальний Video streaming у фінальній таблиці визначаємо приблизно. Latency можна взяти із файла distances.png, який побудований на основі даних https://wondernetwork.com/pings. Download time = Latency * 3-5.
 
-### `npm run build`
+Ваші власні ідеї та ініціативи щодо покращення блоку будуть високо оцінені.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Виконане тестове завдання треба кудись викласти, щоб його можна було перевірити.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3) Додаткове необов'язкове завдання:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Зараз ми переробляємо дизайн цього блоку. Посилання на figma та папку з файлами. Можете підлаштувати свій код під новий дизайн. В ньому багато змін, перегляньте відео new_design.mp4.
 
-### `npm run eject`
+Не показуйте нам свій код по додатковому завданню, просто запишіть відео готового результату. Ви не повинні хвилюватися, що у нас буде можливість використати Вашу роботу, якщо ми оберемо іншого кандидата.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Відео з адаптацією під новий дизайн буде враховуватись, якщо ми отримаємо декілька добре виконаних основних завдань. Вирішуйте самі, чи варто витрачати на це додатковий час.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4) Дедлайн і комунікація:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Виконане тестове завдання приймається до 15 березня включно. Результати будуть оголошені 20 березня.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Якщо виникнуть питання, пишіть на імейл sokodrei@gmail.com, ми обов'язково відповімо. Але Ви завжди можете імпровізувати, якщо щось незрозуміло чи чогось не вистачає.
 
-## Learn More
+5) Оплата тестового завдання:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Якщо цінуєте свій час більше ніж інші, можете написати Ваші очікування по оплаті цього тестового завдання перед початком роботи.
