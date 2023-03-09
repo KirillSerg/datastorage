@@ -52,17 +52,17 @@ const People = ({ region, left, top }) => {
         <IconPeople
           width="35%"
           height="110%"
-          onClick={() => { handlerClickGroup("big") }}
+          onClick={() => { handlerClickGroup(3) }}
         />
         <IconPeople
           width="30%"
           height="90%"
-          onClick={() => { handlerClickGroup("medium") }}
+          onClick={() => { handlerClickGroup(2) }}
         />
         <IconPeople
           width="25%"
           height="70%"
-          onClick={() => { handlerClickGroup("small") }}
+          onClick={() => { handlerClickGroup(1) }}
         />
       </WrapIconPeople>
   );

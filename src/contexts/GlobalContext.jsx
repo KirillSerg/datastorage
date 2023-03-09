@@ -2,13 +2,31 @@ import { createContext, useContext } from "react"
 
 export const initialState = {
   northAmerica: {
-    group: "",
+    group: 0,
     devices: 0,
     mainServer: false,
     additionalserver: false
   },
-  europ: {
-    group: "",
+  southAmerica: {
+    group: 0,
+    devices: 0,
+    mainServer: false,
+    additionalserver: false
+  },
+  europe: {
+    group: 0,
+    devices: 0,
+    mainServer: false,
+    additionalserver: false
+  },
+  asia: {
+    group: 0,
+    devices: 0,
+    mainServer: false,
+    additionalserver: false
+  },
+  australia: {
+    group: 0,
     devices: 0,
     mainServer: false,
     additionalserver: false
