@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { initialState, RegionContext } from "./contexts/GlobalContext";
 import styled from "styled-components";
-import map from "./img/map.png";
-import PeopleGroup from "./PeopleGroup";
+import mapImg from "./img/map.png";
+import PeopleGroup from "./components/PeopleGroup";
 
 const MainWrap = styled.div`
   width: 100vw;
@@ -15,26 +16,24 @@ const BgIcon = styled.img`
 `;
 
 const App = () => {
-  const [selectedGroup, setSelectedGroup] = useState({northAmerica: "", europ: ""})
-console.log(selectedGroup)
+  const [regionData, setRegionData] = useState(initialState)
+console.log(regionData)
   return (
-    <MainWrap>
-      <BgIcon src={map} />
-      <PeopleGroup
-        goupRegion="northAmerica"
-        setSelectedGroup={setSelectedGroup}
-        selectedGroup={selectedGroup}
-        left="12%"
-        top="33%"
-      />
-      <PeopleGroup
-        goupRegion="europ"
-        setSelectedGroup={setSelectedGroup}
-        selectedGroup={selectedGroup}
-        left="45%"
-        top="30%"
-      />
-    </MainWrap>
+    <RegionContext.Provider value={{regionData, setRegionData}}>
+      <MainWrap>
+        <BgIcon src={mapImg} />
+        <PeopleGroup
+          region="northAmerica"
+          left="12%"
+          top="33%"
+        />
+        <PeopleGroup
+          region="europ"
+          left="45%"
+          top="30%"
+        />
+      </MainWrap>
+    </RegionContext.Provider>
   );
 }
 
