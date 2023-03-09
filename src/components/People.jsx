@@ -35,7 +35,7 @@ const IconPeople = styled.div`
   };
 `;
 
-const PeopleGroup = ({ region, left, top }) => {
+const People = ({ region, left, top }) => {
 
   const { regionData, setRegionData } = useGlobalContext()
 
@@ -50,22 +50,22 @@ const PeopleGroup = ({ region, left, top }) => {
   return (
       <WrapIconPeople left={left} top={top}>
         <IconPeople
-          width="40%"
-          height="120%"
+          width="35%"
+          height="110%"
           onClick={() => { handlerClickGroup("big") }}
         />
         <IconPeople
-          width="35%"
-          height="100%"
+          width="30%"
+          height="90%"
           onClick={() => { handlerClickGroup("medium") }}
         />
         <IconPeople
-          width="30%"
-          height="80%"
+          width="25%"
+          height="70%"
           onClick={() => { handlerClickGroup("small") }}
         />
       </WrapIconPeople>
   );
 }
 
-export default PeopleGroup;
+export default People;
