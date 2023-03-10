@@ -36,8 +36,7 @@ const IconPeople = styled.div`
 `;
 
 const People = ({ region, left, top }) => {
-
-  const { regionData, setRegionData } = useGlobalContext()
+  const { regionData, setRegionData, setGroupSelection, setMessage } = useGlobalContext()
 
   const handlerClickGroup = (selectedGroup) => {
     setRegionData({
@@ -45,6 +44,8 @@ const People = ({ region, left, top }) => {
         ...regionData[region], group: selectedGroup
       }
     })
+    setGroupSelection(prev => ({ ...prev, selectedGroup: prev.selectedGroup + 1 }))
+    setMessage(prev =>  ({ ...prev, messageAction: " Next" }))
   }
 
   return (
@@ -52,17 +53,17 @@ const People = ({ region, left, top }) => {
         <IconPeople
           width="35%"
           height="110%"
-          onClick={() => { handlerClickGroup(3) }}
+          onClick={() => handlerClickGroup(3)}
         />
         <IconPeople
           width="30%"
           height="90%"
-          onClick={() => { handlerClickGroup(2) }}
+          onClick={() => handlerClickGroup(2)}
         />
         <IconPeople
           width="25%"
           height="70%"
-          onClick={() => { handlerClickGroup(1) }}
+          onClick={() => handlerClickGroup(1)}
         />
       </WrapIconPeople>
   );

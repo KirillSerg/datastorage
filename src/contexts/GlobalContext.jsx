@@ -35,7 +35,10 @@ export const initialState = {
 
 export const RegionContext = createContext({
   regionData: initialState,
-  setRegionData: () => {},
+  setRegionData: () => { },
+  groupSelection: { isSelectedPeple: false, isSelectedServers: false },
+  setGroupSelection: () => { },
+  setMessage: () => {},
 })
 
 export const useGlobalContext = () => useContext(RegionContext)

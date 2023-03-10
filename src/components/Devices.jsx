@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useGlobalContext } from "../contexts/GlobalContext";
-import display from "../img/display.png";
-import laptop from "../img/laptop.png";
-import phone from "../img/phone.png";
+import displayImg from "../img/display.png";
+import laptopImg from "../img/laptop.png";
+import phoneImg from "../img/phone.png";
 
 const WrapIconDevices = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const WrapIconDevices = styled.div`
 const IconDevices = styled.div`
   width: 33%;
   height: 100%;
-  background-image: url(${props => props.bg || {display}});
+  background-image: url(${props => props.bg || {displayImg}});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -26,17 +26,8 @@ const IconDevices = styled.div`
 `;
 
 const Devices = ({ region, left, top }) => {
-
-  const devicesGroup = [display, phone, laptop]
+  const devicesGroup = [displayImg, phoneImg, laptopImg]
   const { regionData} = useGlobalContext()
-
-  // const handlerClickGroup = (selectedGroup) => {
-  //   setRegionData({
-  //     ...regionData, [region]: {
-  //       ...regionData[region], group: selectedGroup
-  //     }
-  //   })
-  // }
 
   return (
     <WrapIconDevices left={left} top={top}>
