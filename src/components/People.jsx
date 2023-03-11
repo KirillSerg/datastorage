@@ -1,7 +1,12 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import peopleNotActiveImg from "../img/People_not_active.png";
 import peopleActiveImg from "../img/People_active.png";
+
+// const peopleAnimation = keyframes`
+//   0% {opacity: 1;}
+//   100% {opacity: 0;}
+// `;
 
 const WrapIconPeople = styled.div`
   display: flex;
@@ -13,6 +18,8 @@ const WrapIconPeople = styled.div`
   left: ${props => props.left || "50%"};
   position: absolute;
 `;
+  // animation: ${peopleAnimation} linear 1;
+  // animation-duration: ${props => props.isSelected ? "2s" : "0s"};
 
 const IconPeople = styled.div`
   margin-left: -10%;
@@ -44,23 +51,23 @@ const People = ({ region, left, top }) => {
   }
 
   return (
-      <WrapIconPeople left={left} top={top}>
-        <IconPeople
-          width="35%"
-          height="110%"
-          onClick={() => handlerClickGroup(3)}
-        />
-        <IconPeople
-          width="30%"
-          height="90%"
-          onClick={() => handlerClickGroup(2)}
-        />
-        <IconPeople
-          width="25%"
-          height="70%"
-          onClick={() => handlerClickGroup(1)}
-        />
-      </WrapIconPeople>
+    <WrapIconPeople isSelected={regionGroup[region] && true} left={left} top={top}>
+      <IconPeople
+        width="35%"
+        height="110%"
+        onClick={() => handlerClickGroup(3)}
+      />
+      <IconPeople
+        width="30%"
+        height="90%"
+        onClick={() => handlerClickGroup(2)}
+      />
+      <IconPeople
+        width="25%"
+        height="70%"
+        onClick={() => handlerClickGroup(1)}
+      />
+    </WrapIconPeople>
   );
 }
 
