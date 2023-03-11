@@ -15,6 +15,8 @@ const MainWrap = styled.div`
 const MessageAction = styled.span`
   color: blue;
   cursor: pointer;
+  pointer-events: ${props => props.disbled};
+  opacity: ${props => props.disbled === "none" ? "0.3" : "1"};
 `;
 
 const BgIcon = styled.img`
@@ -28,7 +30,7 @@ export const stepMessage3 = "Choose minimum two additional spots for ByteCloud a
 
 const App = () => {
   const [regionGroup, setRegionGroup] = useState(initialStateGroup)
-  const [groupSelection, setGroupSelection] = useState({selectedGroup: 0, selectedServices: 0})
+  const [groupSelection, setGroupSelection] = useState({selectedGroup: 0, selectedServers: 0})
   const [screenSelected, setScreenSelected] = useState({ isGroupSelect: false, isServersSelect: false })
   const [message, setMessage] = useState({ messageText: stepMessage1, messageAction: "" })
   const [servers, setServers] = useState(initialStateServers)
@@ -55,16 +57,16 @@ const App = () => {
   }
 
 // console.log(servers)
-  useEffect(() => {
-    console.log(screenSelected)
-  },[screenSelected])
+  // useEffect(() => {
+  //   console.log(groupSelection)
+  // },[groupSelection])
   
   return (
     <RegionContext.Provider value={{regionGroup, setRegionGroup, groupSelection, setGroupSelection, setMessage, servers, setServers, mainServer, setMainServer, screenSelected}}>
       <MainWrap>
         <div style={{height: "3.5%"}}>
           <label>{message.messageText}</label>
-          <MessageAction href="#" onClick={() => handlerNextScreen()}>{message.messageAction}</MessageAction>
+          <MessageAction disbled={(screenSelected.isGroupSelect && groupSelection.selectedServers < 3) ? "none" : "all"} onClick={() => handlerNextScreen()}>{message.messageAction}</MessageAction>
         </div>
         <BgIcon src={mapImg} />
         {!regionGroup.northAmerica && !screenSelected.isGroupSelect ?

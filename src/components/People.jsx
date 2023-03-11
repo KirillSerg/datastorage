@@ -26,12 +26,11 @@ const IconPeople = styled.div`
 
   &&: hover {
     background-image: url(${peopleActiveImg});
-
+    cursor: pointer;
   };
 
   &&: hover ~ div {
     background-image: url(${peopleActiveImg});
-
   };
 `;
 
