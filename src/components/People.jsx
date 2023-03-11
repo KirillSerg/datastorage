@@ -36,14 +36,10 @@ const IconPeople = styled.div`
 `;
 
 const People = ({ region, left, top }) => {
-  const { regionData, setRegionData, setGroupSelection, setMessage } = useGlobalContext()
+  const { regionGroup, setRegionGroup, setGroupSelection, setMessage } = useGlobalContext()
 
   const handlerClickGroup = (selectedGroup) => {
-    setRegionData({
-      ...regionData, [region]: {
-        ...regionData[region], group: selectedGroup
-      }
-    })
+    setRegionGroup({...regionGroup, [region]: selectedGroup})
     setGroupSelection(prev => ({ ...prev, selectedGroup: prev.selectedGroup + 1 }))
     setMessage(prev =>  ({ ...prev, messageAction: " Next" }))
   }

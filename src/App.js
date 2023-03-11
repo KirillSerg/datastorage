@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { initialState, RegionContext } from "./contexts/GlobalContext";
+import { initialStateGroup, initialStateServers, RegionContext } from "./contexts/GlobalContext";
 import styled from "styled-components";
 import mapImg from "./img/map.png";
 import People from "./components/People";
@@ -12,69 +12,92 @@ const MainWrap = styled.div`
   overflow: hidden;
 `;
 
-const MessageAction = styled.a`
-  text-decoration: none;
+const MessageAction = styled.span`
   color: blue;
+  cursor: pointer;
 `;
 
 const BgIcon = styled.img`
   width: 100%;
-  height: 100%;
-  padding: 1%;
+  height: 96.5%;
 `;
 
+const stepMessage1 = "Where are your users? Choose the number for every region."
+const stepMessage2 = "Where is your data? Choose the one spot for Object Storage system."
+export const stepMessage3 = "Choose minimum two additional spots for ByteCloud and press."
+
 const App = () => {
-  const [regionData, setRegionData] = useState(initialState)
+  const [regionGroup, setRegionGroup] = useState(initialStateGroup)
   const [groupSelection, setGroupSelection] = useState({selectedGroup: 0, selectedServices: 0})
   const [screenSelected, setScreenSelected] = useState({ isGroupSelect: false, isServersSelect: false })
-  const [message, setMessage] = useState({ messageText: "Where are your users? Choosethe number for every region.", messageAction: "" })
+  const [message, setMessage] = useState({ messageText: stepMessage1, messageAction: "" })
+  const [servers, setServers] = useState(initialStateServers)
+  const [mainServer, setMainServer] =useState("")
 
   const handlerNextScreen = () => {
-    setScreenSelected(prev => ({ ...prev, isGroupSelect: true }))
-    setMessage({messageText: "Where is your data? Choosethe one spot for Object Storage system.", messageAction: "" })
+    if (!screenSelected.isGroupSelect) {
+      setScreenSelected(prev => ({ ...prev, isGroupSelect: true }))
+    }
+    if (screenSelected.isGroupSelect && !screenSelected.isServersSelect) {
+      setScreenSelected(prev => ({ ...prev, isServersSelect: true }))
+      setMessage({ messageText: "", messageAction: "" })
+    }
+
+    
+    if (!screenSelected.isGroupSelect) {
+      setMessage({ messageText: stepMessage2, messageAction: "" })
+    }
   }
 
-  if (!screenSelected.isGroupSelect && groupSelection.selectedGroup === Object.keys(initialState).length) {
+  if (!screenSelected.isGroupSelect && groupSelection.selectedGroup === Object.keys(initialStateGroup).length) {
     setScreenSelected(prev => ({ ...prev, isGroupSelect: true }))
-    setMessage({messageText: "Where is your data? Choosethe one spot for Object Storage system.", messageAction: "" })
+    setMessage({messageText: stepMessage2, messageAction: "" })
   }
 
-// console.log(screenSelected)
-  // useEffect(() => {
-  //   console.log(screenSelection)
-  // },[screenSelection])
+// console.log(servers)
+  useEffect(() => {
+    console.log(screenSelected)
+  },[screenSelected])
   
   return (
-    <RegionContext.Provider value={{regionData, setRegionData, groupSelection, setGroupSelection, setMessage}}>
+    <RegionContext.Provider value={{regionGroup, setRegionGroup, groupSelection, setGroupSelection, setMessage, servers, setServers, mainServer, setMainServer, screenSelected}}>
       <MainWrap>
-        <label>{message.messageText}</label>
-        <MessageAction href="#" onClick={() => handlerNextScreen()}>{message.messageAction}</MessageAction>
+        <div style={{height: "3.5%"}}>
+          <label>{message.messageText}</label>
+          <MessageAction href="#" onClick={() => handlerNextScreen()}>{message.messageAction}</MessageAction>
+        </div>
         <BgIcon src={mapImg} />
-        {!regionData.northAmerica.group ?
-          <People region="northAmerica" left="10%" top="33%" /> :
-          <Devices region="northAmerica" left="10%" top="33%" />
+        {!regionGroup.northAmerica && !screenSelected.isGroupSelect ?
+          <People region="northAmerica" left="14%" top="33%" /> :
+          <Devices region="northAmerica" left="14%" top="33%" />
         }
         {screenSelected.isGroupSelect &&
-          <Servers region="northAmerica" left="10%" top="33%" />
+          <Servers serverRegion="northAmericaWest" left="10%" top="37%" />
         }
-        {!regionData.southAmerica.group ?
-          <People region="southAmerica" left="21%" top="64%" /> :
-          <Devices region="southAmerica" left="21%" top="64%" />
+        {screenSelected.isGroupSelect &&
+          <Servers serverRegion="northAmericaEast" left="27%" top="32%" />
         }
-
-        {!regionData.europe.group ?
-          <People region="europe" left="42%" top="29%" /> :
-          <Devices region="europe" left="42%" top="29%" />
+        {!regionGroup.southAmerica && !screenSelected.isGroupSelect ?
+          <People region="southAmerica" left="22%" top="70%" /> :
+          <Devices region="southAmerica" left="22%" top="70%" />
         }
-
-        {!regionData.asia.group ?
-          <People region="asia" left="65%" top="37%" /> :
-          <Devices region="asia" left="65%" top="37%" />
+        {!regionGroup.europe && !screenSelected.isGroupSelect ?
+          <People region="europe" left="45%" top="34%" /> :
+          <Devices region="europe" left="45%" top="34%" />
         }
-
-        {!regionData.australia.group ?
-          <People region="australia" left="75%" top="73%" /> :
-          <Devices region="australia" left="75%" top="73%" />
+        {screenSelected.isGroupSelect &&
+          <Servers serverRegion="europe" left="52%" top="29%" />
+        }
+        {!regionGroup.asia && !screenSelected.isGroupSelect ?
+          <People region="asia" left="65%" top="42%" /> :
+          <Devices region="asia" left="65%" top="42%" />
+        }
+        {screenSelected.isGroupSelect &&
+          <Servers serverRegion="asia" left="75%" top="57%" />
+        }
+        {!regionGroup.australia && !screenSelected.isGroupSelect ?
+          <People region="australia" left="76%" top="78%" /> :
+          <Devices region="australia" left="76%" top="78%" />
         }
 
       </MainWrap>

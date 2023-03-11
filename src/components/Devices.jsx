@@ -27,12 +27,12 @@ const IconDevices = styled.div`
 
 const Devices = ({ region, left, top }) => {
   const devicesGroup = [displayImg, phoneImg, laptopImg]
-  const { regionData} = useGlobalContext()
+  const { regionGroup} = useGlobalContext()
 
   return (
     <WrapIconDevices left={left} top={top}>
       {devicesGroup.map((device, index) => (
-        index < regionData[region].group ? (<IconDevices key={index} bg={device} />) : null
+        index < regionGroup[region] ? (<IconDevices key={index} bg={device} />) : null
       ))}
     </WrapIconDevices>
   );

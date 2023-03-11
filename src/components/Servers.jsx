@@ -1,72 +1,59 @@
 import styled from "styled-components";
-// import { useGlobalContext } from "../contexts/GlobalContext";
+import { stepMessage3 } from "../App";
+import { useGlobalContext } from "../contexts/GlobalContext";
+import cloud_1Img from "../img/Cloud_1.png";
+import cloud_2Img from "../img/Cloud_2.png";
+import cloud_hoverImg from "../img/Cloud_hover.png";
+import servers_blue_Img from "../img/Servers_blue.png";
+import servers_blue_and_red_Img from "../img/Servers_blue_and_red.png";
 
-const WrapIconPeople = styled.div`
-  display: flex;
-  align-items: end;
-  flex-direction: row-reverse;
-  width: 15%;
+const IconServer = styled.div`
+  width: 7%;
   height: 10%;
   top: ${props => props.top || "50%"};
   left: ${props => props.left || "50%"};
+  background-image: url(${props => props.bg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  mix-blend-mode: multiply;
   position: absolute;
+
+  &&: hover {
+    background-image: url(${props => props.bg === cloud_1Img ? cloud_hoverImg : props.bg});
+  };
 `;
 
-// const IconPeople = styled.div`
-//   margin-left: -10%;
-//   width: ${props => props.width || "33%"};
-//   height: ${props => props.height || "100%"};
-//   background-image: url(${peopleNotActiveImg});
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   mix-blend-mode: multiply;
+const Servers = ({ serverRegion, left, top }) => {
 
-//   &&: hover {
-//     background-image: url(${peopleActiveImg});
+  const { servers, setServers, mainServer, setMainServer, setMessage, screenSelected } = useGlobalContext()
 
-//   };
 
-//   &&: hover ~ div {
-//     background-image: url(${peopleActiveImg});
 
-//   };
-// `;
+  let bgServer = cloud_1Img
 
-const Servers = ({ region, left, top }) => {
+  if (mainServer === serverRegion) {
+    bgServer = servers_blue_and_red_Img
+  } else if (servers[serverRegion]) {
+    bgServer = servers_blue_Img
+  } else if (!servers[serverRegion] && screenSelected.isServersSelect) {
+    bgServer = ""
+  }
 
-  // const { regionData, setRegionData, setScreenSelection } = useGlobalContext()
-
-  // const handlerClickGroup = (selectedGroup) => {
-  //   setRegionData({
-  //     ...regionData, [region]: {
-  //       ...regionData[region], group: selectedGroup
-  //     }
-  //   })
+  const handlerClickServer = () => {
+    setServers(prev => ({ ...prev, [serverRegion]: true }))
+    if (!mainServer) {
+      setMainServer(serverRegion)
+      setMessage({messageText: stepMessage3, messageAction: " Start" })
+    }
+    
   //   setScreenSelection(prev => {
   //     return {...prev, selectedPeopleGroup: prev.selectedPeopleGroup+1}
   //   })
-  // }
+  }
 
   return (
-    <WrapIconPeople left={left} top={top}>
-      server here
-      {/* <IconPeople
-        width="35%"
-        height="110%"
-        onClick={() => { handlerClickGroup(3) }}
-      />
-      <IconPeople
-        width="30%"
-        height="90%"
-        onClick={() => { handlerClickGroup(2) }}
-      />
-      <IconPeople
-        width="25%"
-        height="70%"
-        onClick={() => { handlerClickGroup(1) }}
-      /> */}
-    </WrapIconPeople>
+    <IconServer bg={bgServer} left={left} top={top} onClick={() => { handlerClickServer() }} />
   );
 }
 

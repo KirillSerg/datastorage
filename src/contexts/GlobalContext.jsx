@@ -1,44 +1,32 @@
 import { createContext, useContext } from "react"
 
-export const initialState = {
-  northAmerica: {
-    group: 0,
-    devices: 0,
-    mainServer: false,
-    additionalserver: false
-  },
-  southAmerica: {
-    group: 0,
-    devices: 0,
-    mainServer: false,
-    additionalserver: false
-  },
-  europe: {
-    group: 0,
-    devices: 0,
-    mainServer: false,
-    additionalserver: false
-  },
-  asia: {
-    group: 0,
-    devices: 0,
-    mainServer: false,
-    additionalserver: false
-  },
-  australia: {
-    group: 0,
-    devices: 0,
-    mainServer: false,
-    additionalserver: false
-  },
+export const initialStateGroup = {
+  northAmerica: 0,
+  southAmerica: 0,
+  europe: 0,
+  asia: 0,
+  australia: 0
+}
+
+export const initialStateServers = {
+  northAmericaWest: false,
+  southAmericaEast: false,
+  europe: false,
+  asia: false
 }
 
 export const RegionContext = createContext({
-  regionData: initialState,
-  setRegionData: () => { },
+  regionGroup: initialStateGroup,
+  setRegionGroup: () => { },
   groupSelection: { isSelectedPeple: false, isSelectedServers: false },
   setGroupSelection: () => { },
-  setMessage: () => {},
+  setMessage: () => { },
+  servers: initialStateServers,
+  setServers: () => { },
+  mainServer: false,
+  setMainServer: () => { },
+  screenSelected: { isGroupSelect: false, isServersSelect: false },
+  setScreenSelected: () => { },
 })
 
 export const useGlobalContext = () => useContext(RegionContext)
