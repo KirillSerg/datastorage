@@ -7,7 +7,7 @@ import phoneImg from "../img/phone.png";
 const WrapIconDevices = styled.div`
   display: flex;
   align-items: end;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 15%;
   height: 10%;
   top: ${props => props.top || "50%"};
@@ -28,12 +28,13 @@ const IconDevices = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   mix-blend-mode: multiply;
-  animation: ${devicesAnimation} 2s linear 1;
+  animation: ${devicesAnimation} 1s linear 1;
+  // z-index: 2;
 `;
 
 const Devices = ({ region, left, top }) => {
-  const devicesGroup = [displayImg, phoneImg, laptopImg]
-  const { regionGroup} = useGlobalContext()
+  const devicesGroup = [laptopImg, displayImg, phoneImg]
+  const {regionGroup} = useGlobalContext()
 
   return (
     <>

@@ -32,6 +32,7 @@ const IconServer = styled.div`
   position: absolute;
   animation: ${cloudAnimation} linear infinite;
   animation-duration: ${props => props.bg === cloud_1Img ? "2s" : "0s"};
+  // z-index: 3;
 
   &&: hover {
     background-image: url(${props => props.bg === cloud_1Img ? cloud_hoverImg : props.bg});
@@ -65,7 +66,11 @@ const Servers = ({ serverRegion, left, top }) => {
   }
 
   return (
-    <IconServer bg={bgServer} left={left} top={top} onClick={() => { handlerClickServer() }} />
+    <>
+      {screenSelected.isGroupSelect &&
+        <IconServer bg={bgServer} left={left} top={top} onClick={() => { handlerClickServer() }} />
+      }
+    </>
   );
 }
 

@@ -3,11 +3,6 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import peopleNotActiveImg from "../img/People_not_active.png";
 import peopleActiveImg from "../img/People_active.png";
 
-// const peopleAnimation = keyframes`
-//   0% {opacity: 1;}
-//   100% {opacity: 0;}
-// `;
-
 const WrapIconPeople = styled.div`
   display: flex;
   align-items: end;
@@ -18,8 +13,6 @@ const WrapIconPeople = styled.div`
   left: ${props => props.left || "50%"};
   position: absolute;
 `;
-  // animation: ${peopleAnimation} linear 1;
-  // animation-duration: ${props => props.isSelected ? "2s" : "0s"};
 
 const IconPeople = styled.div`
   margin-left: -10%;

@@ -27,6 +27,8 @@ export const RegionContext = createContext({
   setMainServer: () => { },
   screenSelected: { isGroupSelect: false, isServersSelect: false },
   setScreenSelected: () => { },
+  finishCalculate: { isObjectCalc: false, isByteCloudCalc: false },
+  setFinishCalculate: () => { },
 })
 
 export const useGlobalContext = () => useContext(RegionContext)
