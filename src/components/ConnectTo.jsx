@@ -35,13 +35,14 @@ const IconConnect = styled.img`
   top: 0;
   left: 0;
   position: absolute;
+  opacity: ${props => props.opacity ? "0" : "1"}
   animation: ${cloudAnimation} 2s linear infinite;
   z-index: 1;
 `;
 
 const ConnectTo = ({connectTo}) => {
 
-  const {regionGroup, mainServer} = useGlobalContext()
+  const {regionGroup, mainServer, finishCalculate} = useGlobalContext()
 
   const connects = useMemo(() => {
     return {
@@ -79,7 +80,7 @@ const ConnectTo = ({connectTo}) => {
   return (
     <>
       {
-        connects[mainServer][connectTo].map((loc2, i) => i < regionGroup[connectTo] ?
+        connects.europe[connectTo].map((loc2, i) => i < regionGroup[connectTo] ?
             <IconConnect key={i} src={loc2.img} /> :
             null)
       }

@@ -5,7 +5,6 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 const MainTableWrap = styled.div`
   width: 100%;
   height: 100%;
-  background-color: lightgreen;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +12,6 @@ const MainTableWrap = styled.div`
 `;
 
 const WrapResultTable = styled.div`
-  background-color: lightgreen;
   width: 30%;
   height: 50%;
   display: flex;
