@@ -24,7 +24,7 @@ const MessageAction = styled.span`
 const BgIcon = styled.img`
   width: 100%;
   height: 96.5%;
-  position: relative;
+  // position: relative;
 `;
 
 const stepMessage1 = "Where are your users? Choose the number for every region."

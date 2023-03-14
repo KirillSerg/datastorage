@@ -9,6 +9,7 @@ const MainTableWrap = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3%;
+  position: absolute;
 `;
 
 const WrapResultTable = styled.div`
