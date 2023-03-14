@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/datastorage/static/css/main.e6c13ad2.css",
+    "main.js": "/datastorage/static/js/main.1c643171.js",
+    "static/media/map.png": "/datastorage/static/media/map.21d52bd572d630a090b2.png",
+    "static/media/Servers_blue_and_red.png": "/datastorage/static/media/Servers_blue_and_red.f149aff642aae7dfd0fb.png",
+    "static/media/Servers_blue.png": "/datastorage/static/media/Servers_blue.503a0e766fd887670db3.png",
+    "static/media/laptop.png": "/datastorage/static/media/laptop.ea2dfa358fd632fc6c25.png",
+    "static/media/Cloud_1.png": "/datastorage/static/media/Cloud_1.42d397b2e0dae4f1f3dd.png",
+    "static/media/phone.png": "/datastorage/static/media/phone.9015fac1cbcc81500cb4.png",
+    "static/media/display.png": "/datastorage/static/media/display.10f00676662def3ac359.png",
+    "static/media/Cloud_2.png": "/datastorage/static/media/Cloud_2.21dc48db499286ff4a89.png",
+    "static/media/Cloud_hover.png": "/datastorage/static/media/Cloud_hover.afcee9374cd707767c5b.png",
+    "static/media/People_active.png": "/datastorage/static/media/People_active.ed7d0f7a51f59be97678.png",
+    "static/media/People_not_active.png": "/datastorage/static/media/People_not_active.877998baf3cab247f384.png",
+    "static/media/s_de-au_3_red.png.png": "/datastorage/static/media/s_de-au_3_red.png.88acde7d7acdaa4b350d.png",
+    "static/media/s_de-au_1_red.png.png": "/datastorage/static/media/s_de-au_1_red.png.f07f9f3f249e97bdca3e.png",
+    "static/media/s_de-au_2_red.png.png": "/datastorage/static/media/s_de-au_2_red.png.a8b1b990e8e12183345e.png",
+    "static/media/s_de-SouthА_2_red.png.png": "/datastorage/static/media/s_de-SouthА_2_red.png.1c2c1bbb88b1c7d753e9.png",
+    "static/media/s_de-asia_3_red.png": "/datastorage/static/media/s_de-asia_3_red.394ed7f3f7190ef59178.png",
+    "static/media/s_de-SouthА_3_red.png.png": "/datastorage/static/media/s_de-SouthА_3_red.png.7fbe8a0557a370e9e58b.png",
+    "static/media/s_de-asia_2_red.png": "/datastorage/static/media/s_de-asia_2_red.4717d73233f777e7e1c3.png",
+    "static/media/s_de-SouthА_1_red.png.png": "/datastorage/static/media/s_de-SouthА_1_red.png.ff5359af604c7fc3bde0.png",
+    "static/media/s_de-us_1_red.png.png": "/datastorage/static/media/s_de-us_1_red.png.e65e56684d8c409f386f.png",
+    "static/media/s_de-asia_1_red.png": "/datastorage/static/media/s_de-asia_1_red.fae1f25083b230041aa0.png",
+    "static/media/s_de-us_3_red.png.png": "/datastorage/static/media/s_de-us_3_red.png.d77f30f9383ca9944ddd.png",
+    "static/media/s_de-us_2_red.png.png": "/datastorage/static/media/s_de-us_2_red.png.833ce24cd2eb299391b6.png",
+    "index.html": "/datastorage/index.html",
+    "main.e6c13ad2.css.map": "/datastorage/static/css/main.e6c13ad2.css.map",
+    "main.1c643171.js.map": "/datastorage/static/js/main.1c643171.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1c643171.js"
+  ]
+}
